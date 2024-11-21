@@ -1,15 +1,16 @@
-# Project-1
-Algorithmic Tradin(using crossover stratergy)
-import yfinance as yf
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
+
+Algorithmic Trading using the Moving Average Crossover Strategy
+This project demonstrates a simple algorithmic trading strategy using the Moving Average Crossover technique. The strategy is implemented in Python, leveraging stock data obtained via the yfinance library. The goal is to test how this strategy performs compared to the market return over a given time period.
+
 
 # Obtaining Previous Stock Data
-def get_stock_data(ticker, start_date, end_date):
-    data = yf.download(ticker, start=start_date, end=end_date)
-    data['Return'] = data['Adj Close'].pct_change()
-    return data
+Purpose: This function retrieves historical stock data for the specified ticker symbol and date range using the yfinance library.
+Parameters:
+ticker: The stock symbol (e.g., "AAPL" for Apple Inc.).
+start_date: The start of the data range.
+end_date: The end of the data range.
+Output:
+A DataFrame containing the stock's historical data with an additional column, 'Return', which represents daily percentage price changes.
 
 # Applying the specific strategy: Moving Average Crossover
 def apply_strategy(data, short_window=10, long_window=50):
